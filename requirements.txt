@@ -1,0 +1,4 @@
+pyOpenSSL
+pycryptodome
+haikunator
+straight.plugin==1.5.0
