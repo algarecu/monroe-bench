@@ -8,7 +8,7 @@
     Python Version: Python 3
 '''
 
-# Usage: python3 parser.py > commands.txt
+# Usage: python3 workload.py > commands.txt
 # Output: $NAME $TARGET $DURATION
 
 import json
@@ -19,13 +19,7 @@ from pprint import pprint
 if os.path.exists("/monroe/config"):
     jsondata = json.load(open("/monroe/config"))
 else:
-    # urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-media.json"
-    # urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-ping.json"
-    urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-traceroute.json"
-    # urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-curl.json"
-    # urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-dig.json"
-    # urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-traixroute.json"
-    # urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-alexa10top.json"
+    urlData = "http://www.eecs.qmul.ac.uk/~alvarogr/monroe-config-alexa10top.json"
     webURL = urllib.request.urlopen(urlData)
     data = webURL.read()
     encoding = webURL.info().get_content_charset('utf-8')
