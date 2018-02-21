@@ -1,0 +1,23 @@
+FROM monroe/base
+MAINTAINER qmmonroe@qmul.ac.uk
+
+COPY files/* /opt/monroe/
+COPY files/prod/* /opt/monroe/
+
+# My installs
+RUN chmod 755 /opt/monroe/install.sh \
+  /opt/monroe/entrypoint.sh \
+  /opt/monroe/ping-experiment.sh \
+  /opt/monroe/traceroute-experiment.sh \
+  /opt/monroe/traceroute_parse.pl \
+  /opt/monroe/traixroute-experiment.sh \
+  /opt/monroe/dig-experiment.sh \
+  /opt/monroe/curl-experiment.sh \
+  /opt/monroe/parser.sh \
+  /opt/monroe/parser.py
+
+# Running the command
+RUN /opt/monroe/install.sh
+
+# My command
+CMD ["/bin/bash", "-c", "/opt/monroe/parser.sh"]
